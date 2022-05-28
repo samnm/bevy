@@ -141,6 +141,20 @@ impl Mesh {
             .map(|data| &mut data.values)
     }
 
+    /// Returns an iterator that yields references to the data of each vertex attribute.
+    pub fn attributes(&self) -> impl Iterator<Item = (&str, &VertexAttributeValues)> {
+        self.attributes
+            .iter()
+            .map(|(name, values)| (name.as_ref(), values))
+    }
+
+    /// Returns an iterator that yields mutable references to the data of each vertex attribute.
+    pub fn attributes_mut(&mut self) -> impl Iterator<Item = (&str, &mut VertexAttributeValues)> {
+        self.attributes
+            .iter_mut()
+            .map(|(name, values)| (name.as_ref(), values))
+    }
+
     /// Sets the vertex indices of the mesh. They describe how triangles are constructed out of the
     /// vertex attributes and are therefore only useful for the [`PrimitiveTopology`] variants
     /// that use triangles.
