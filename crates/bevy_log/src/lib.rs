@@ -124,7 +124,7 @@ impl Plugin for LogPlugin {
             let settings = app.world.get_resource_or_insert_with(LogSettings::default);
             format!("{},{}", settings.level, settings.filter)
         };
-        LogTracer::init().unwrap();
+        let _ = LogTracer::init();
         let filter_layer = EnvFilter::try_from_default_env()
             .or_else(|_| EnvFilter::try_new(&default_filter))
             .unwrap();
