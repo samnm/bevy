@@ -144,10 +144,10 @@ impl From<&TouchInput> for Touch {
 
 #[derive(Debug, Clone, Default)]
 pub struct Touches {
-    pressed: HashMap<u64, Touch>,
-    just_pressed: HashMap<u64, Touch>,
-    just_released: HashMap<u64, Touch>,
-    just_cancelled: HashMap<u64, Touch>,
+    pub pressed: HashMap<u64, Touch>,
+    pub just_pressed: HashMap<u64, Touch>,
+    pub just_released: HashMap<u64, Touch>,
+    pub just_cancelled: HashMap<u64, Touch>,
 }
 
 impl Touches {
